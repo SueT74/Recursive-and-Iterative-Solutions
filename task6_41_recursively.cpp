@@ -13,36 +13,36 @@ int gcd(int, int);
 
 int main() {
 	
-    int x, y;
+    	int x, y;
 
-    cout << "Find the greatest common divisor of two numbers - Recursively"<< endl;
-    cout << "***********************************************************"<< endl;
+	cout << "Find the greatest common divisor of two numbers - Recursively"<< endl;
+    	cout << "***********************************************************"<< endl;
 	
 	// get numbers from user
-    cout << "Enter x and y: ";
-    cin >> x >> y;
+    	cout << "Enter x and y: ";
+    	cin >> x >> y;
 
-    // For this algorithm, x must be larger than y.
-    if (x < y) 
+    	// For this algorithm, x must be larger than y.
+    	if (x < y) 
 	{
-        int tmp = x;
-        x = y;
-        y = tmp;
-    }
+		int tmp = x;
+		x = y;
+		y = tmp;
+   	 }
     
 	cout<< "GCD is: " <<gcd(x,y);
 	
-    return 0;
+    	return 0;
 }
 // recursive greatest common divisor
 int gcd(int x, int y) {
 	
-    if (y == 0) 
+    	if (y == 0) 
 	{
-        return x;
-    } 
+        	return x;
+   	} 
 	else 
 	{
-        return gcd(y, x % y);
-    }
+        	return gcd(y, x % y);
+   	}
 }
