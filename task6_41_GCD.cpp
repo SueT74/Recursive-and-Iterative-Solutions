@@ -4,66 +4,68 @@
 using namespace std;
 
 //find gcd recursively
-int gcdRecursive(int x, int y) {
+int gcdRecursive(int x, int y){
+	
 	if (x < y)//make sure x>y
 	{
-        int tmp = x;
-        x = y;
-        y = tmp;
-    }
+        	int tmp = x;
+        	x = y;
+        	y = tmp;
+   	 }
     
-    if (y == 0) //if y is 0 return x value
+   	 if (y == 0) //if y is 0 return x value
 	{
-        return x;
-    } 
+        	return x;
+    	} 
 	else 
 	{
-        return gcdRecursive(y, x % y);//gcd calculate
-    }
+		return gcdRecursive(y, x % y);//gcd calculate
+    	}
 }
 
-
+//find gcd with iteration
 int gcdIteration(int,int){
 	
 	int x,y,r; 
-	 
-	if (x < y) 	//make sure x > y
+
+	if (x < y) //make sure x > y
 	{
 		int tmp = x;
 		x = y;
 		y = tmp;
-   	}
-   	
-	if (y == 0)	// if y is 0 gcd return x value
-	{
-        	return x;
-   	} 
-   	
+	}
 
-    while(y != 0)//work out gcd
+	if (y == 0)// if y is 0 gcd return x value
 	{
-        r = x % y;
-       	x = y;
-        y = r;
-    }
-    	
-   	return x;
+		return x;
+	} 
+
+
+	while(y != 0)//calculate gcd
+		{
+		r = x % y;
+		x = y;
+		y = r;
+	}
+
+	return x;
 }
  
 
 int main()
 {
 	int x,y;
-	// get numbers from user
-    cout << "Enter x and y: ";
-    cin >> x >> y;
-    
-    //print recursive result
-    cout << "\n***********************"<< endl;
-    cout<< "GCD recursively is: " <<gcdRecursive(x,y) <<endl;
+
+// get numbers from user
+	cout << "Enter x and y: ";
+	cin >> x >> y;
+
+	//print recursive result
+	cout << "\n***********************"<< endl;
+	cout<< "GCD recursively is: " <<gcdRecursive(x,y) <<endl;
 
 	//print ilerative
-    cout << "\n***********************"<< endl;
-    cout<< "GCD iteratively is: " <<gcdIteration(x,y)<<endl;
-    return 0;
+	cout << "\n***********************"<< endl;
+	cout<< "GCD iteratively is: " <<gcdIteration(x,y)<<endl;
+	return 0;
 }
