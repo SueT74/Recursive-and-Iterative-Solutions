@@ -11,13 +11,16 @@ int gcd(int x, int y)
 	// get numbers from user
     	cout << "Enter x and y: ";
     	cin >> x >> y;
+	
 
-	if (x < y) 
+	if (x==0) 
 	{
-		int tmp = x;
-		x = y;
-		y = tmp;
+		return y;
     	}
+    	else if (y==0)
+	{
+		return x;		
+	}
 
     	while (x != y) 
 	{
