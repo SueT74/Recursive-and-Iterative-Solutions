@@ -30,15 +30,15 @@ void displayResults(int array[], int size)
 }
 
 // find partition point 
-int partition(int array[], int low, int high) 
+int partition(int array[], int start, int end) 
 {
   	//start at last (right end) element of the array- select as pivot
-  	int pivot = array[high];
+  	int pivot = array[end];
   
-  	int i = (low - 1);
+  	int i = (start - 1);
 
   	// loop  and compare with pivot
-  	for (int j = low; j < high; j++) 
+  	for (int j = start; j < end; j++) 
 	{
     	if (array[j] <= pivot) 
 		{
@@ -46,60 +46,60 @@ int partition(int array[], int low, int high)
       		swap(&array[i], &array[j]);
     	}
   	}
-  	// swap pivot with the higher element 
-  	swap(&array[i + 1], &array[high]);
+  	// swap pivot with the ender element 
+  	swap(&array[i + 1], &array[end]);
   
   	// return partition point
   	return (i + 1);
 }
 
 //recursive quickSort function
-void quickSortRecursive(int array[], int low, int high) 
+void quickSortRecursive(int array[], int start, int end) 
 {
-	if (low < high) 
+	if (start < end) 
 	{
   
-	int pivot = partition(array, low, high);
+	int pivot = partition(array, start, end);
 	
 	//recursive call for  the partitioned arrays.
-    quickSortRecursive(array, low, pivot - 1);
-    quickSortRecursive(array, pivot + 1, high);
+    quickSortRecursive(array, start, pivot - 1);
+    quickSortRecursive(array, pivot + 1, end);
   	}
 }
 
 //Iterative quickSort function
-void quickSortIterative(int array1[], int low, int high)
+void quickSortIterative(int array1[], int start, int end)
 {
     // Create an auxiliary stack
-    int stack[high - low + 1];
+    int stack[end - start + 1];
  
     // initialize top of stack
     int top = -1;
  
     // push initial values of l and h to stack
-    stack[++top] = low;
-    stack[++top] = high;
+    stack[++top] = start;
+    stack[++top] = end;
  
     // while not empty - continue popping from stack
     while (top >= 0) {
        
-        high = stack[top--];
-        low = stack[top--];
+        end = stack[top--];
+        start = stack[top--];
  
-        int pivot = partition(array1, low, high);
+        int pivot = partition(array1, start, end);
  
         // any elements on left side of pivot 
-        if (pivot - 1 > low) 
+        if (pivot - 1 > start) 
 		{
-            stack[++top] = low;
+            stack[++top] = start;
             stack[++top] = pivot - 1;
         }
  
         // any elements on right side of pivot
-        if (pivot + 1 < high) 
+        if (pivot + 1 < end) 
 		{
             stack[++top] = pivot + 1;
-            stack[++top] = high;
+            stack[++top] = end;
         }
     }
 }
