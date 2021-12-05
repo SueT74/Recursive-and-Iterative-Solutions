@@ -2,7 +2,7 @@
 // Binary search of an array.
 
 // ****iteration - given in the book***
-
+// modification of fig 20.3 of book
 //Susan Tunkkari NITS19K C++ Nov 2021
 
 #include <algorithm> 
