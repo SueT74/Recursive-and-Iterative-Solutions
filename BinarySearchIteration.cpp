@@ -1,8 +1,8 @@
 // Fig 20.3: BinarySearch.cpp
 // Binary search of an array.
 
-// ****iteration - given in the book***
-// modification of fig 20.3 of book
+// ****iteration - given in the book- THIS IS FROM THE BOOK***
+
 //Susan Tunkkari NITS19K C++ Nov 2021
 
 #include <algorithm> 
